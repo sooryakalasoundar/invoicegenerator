@@ -1,0 +1,62 @@
+﻿<!-- views/invoiceView.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+ <title>View Invoice</title>
+</head>
+<body class="container border p-4 py-4" style="font-family: Arial, sans-serif; font-size: 16px;">
+  <!-- Invoice Header Table -->
+  <table class="table w-100 mb-4">
+    <tr>
+      <td><strong>Invoice No:</strong> <%= invoice.invoice_id %></td>
+      <td class="text-end"><strong>Date:</strong> <%= invoice.inv_date ? invoice.inv_date.toLocaleDateString().split('T')[0] : 'N/A' %></td>
+    </tr>
+    <tr>
+      <td colspan="2"><strong>To:</strong> <%= invoice.invoice_to %></td>
+    </tr>
+  </table>
+
+  <!-- Items Table -->
+  <h4>Items</h4>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped align-middle">
+      <thead class="table-success">
+        <tr>
+          <th>Details</th>
+          <th class="text-end">Quantity</th>
+          <th class="text-end">Rate</th>
+          <th class="text-end">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% items.forEach(item => { %>
+        <tr>
+          <td><%= item.details %></td>
+          <td class="text-end"><%= item.quantity %></td>
+          <td class="text-end"><%= item.rate_per %></td>
+          <td class="text-end"><%= item.total %></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Final Total Table -->
+  <table class="table w-100 mt-3">
+    <tr>
+      <td class="text-end"><strong>Final Total:</strong> ₹ <%= invoice.final_total %></td>
+    </tr>
+  </table>
+
+  <!-- Navigation Button Table -->
+  <table class="table w-100 mt-4">
+    <tr>
+      <td class="text-end">
+        <a href="/invoices" class="btn btn-secondary">Back to Invoices</a>
+      </td>
+    </tr>
+  </table>
+</body>
+
+</html>
