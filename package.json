@@ -2,7 +2,19 @@
   "name": "invoiceapril2325",
   "version": "1.0.0",
   "main": "index.js",
-  "bin": "app.js",
+  "bin": {
+    "invoiceapril2325": "app.js"
+  },
+  "pkg": {
+    "scripts": [ "node_modules/**/*" ],
+    "assets": [
+      "views/**/*",
+      "public/**/*",
+      "routes/**/*",
+      "controllers/**/*"
+    ]
+  },
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,4 +29,5 @@
     "express": "^5.1.0",
     "mysql2": "^3.14.0"
   }
+
 }

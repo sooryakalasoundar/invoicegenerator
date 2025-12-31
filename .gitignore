@@ -1,0 +1,16 @@
+# Node.js
+node_modules/
+npm-debug.log
+.env
+
+# Visual Studio
+.vs/
+*.vsidx
+*.suo
+*.user
+*.db
+
+# Build artifacts
+*.exe
+*.bat
+*.dll
